@@ -2,16 +2,14 @@ package com.pluralsight;
 
 public class Room {
     private double price;
-    private boolean occupied;
-    private boolean dirty;
-    private boolean available;
+    private boolean isOccupied;
+    private boolean isDirty;
     private int numberOfBeds;
 
-    public Room(double price, boolean occupied, boolean dirty, boolean available, int numberOfBeds) {
+    public Room(double price, int numberOfBeds) {
         this.price = price;
-        this.occupied = occupied;
-        this.dirty = dirty;
-        this.available = available;
+        this.isOccupied = false;
+        this.isDirty = false;
         this.numberOfBeds = numberOfBeds;
     }
 
@@ -20,15 +18,15 @@ public class Room {
     }
 
     public boolean isOccupied() {
-        return occupied;
+        return isOccupied();
     }
 
     public boolean isDirty() {
-        return dirty;
+        return isDirty;
     }
 
     public boolean isAvailable() {
-        return available;
+        return !isOccupied && !isDirty() ;
     }
 
     public int getNumberOfBeds() {
